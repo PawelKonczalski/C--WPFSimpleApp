@@ -1,0 +1,33 @@
+﻿<Window x:Class="DataTriggers.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DataTriggers"
+        Title="MainWindow" Height="300" Width="525">
+    <StackPanel>
+        <StackPanel.Resources>
+            <local:MyImages x:Key="image1" isFound="True" />
+            <local:MyImages x:Key="image2" isFound="False" />
+            <local:MyImages x:Key="image3" isFound="True" />
+            
+            <Style TargetType="{x:Type Image}" x:Key="myImage">
+                <Setter Property="Width" Value="70" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=isFound}" Value="False">
+                        <Setter Property="Source" Value="not_available.png" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Path=isFound}" Value="True">
+                        <Setter Property="Source" Value="{Binding Path=pathToImage}" />
+                    </DataTrigger>                    
+                </Style.Triggers>
+            </Style>
+            
+        </StackPanel.Resources>
+
+
+        <Image DataContext="{StaticResource image1}" Style="{StaticResource myImage}" />
+        <Image DataContext="{StaticResource image2}" Style="{StaticResource myImage}" />
+        <Image DataContext="{StaticResource image3}" Style="{StaticResource myImage}" />
+
+        
+    </StackPanel>
+</Window>
