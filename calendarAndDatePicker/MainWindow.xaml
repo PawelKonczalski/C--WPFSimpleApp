@@ -1,0 +1,17 @@
+﻿<Window x:Class="calendarAndDatePicker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:calendarAndDatePicker"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <Calendar SelectionMode="MultipleRange" DisplayMode="Month" SelectedDatesChanged="Calendar_SelectedDatesChanged">
+            <Calendar.BlackoutDates>
+                <CalendarDateRange Start="02/20/2020" End="02/28/2020" />
+            </Calendar.BlackoutDates>
+        </Calendar>
+        <ComboBox x:Name="dateCombo" />
+    </StackPanel>
+</Window>
