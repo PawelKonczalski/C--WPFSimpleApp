@@ -1,0 +1,19 @@
+﻿<Window x:Class="stringFormat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:stringFormat"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        x:Name="nameOfWindow">
+    <StackPanel>
+
+        <Label Margin="20" Content="{x:Static sys:DateTime.Now}" ContentStringFormat="dd/MM/yyyy HH:mm:ss"/>
+        <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat=dd/MM/yyyy HH:mm:ss}" />
+        
+        <TextBlock Text="{Binding ElementName=nameOfWindow, Path=Width, StringFormat=F}" />
+
+    </StackPanel>
+</Window>
